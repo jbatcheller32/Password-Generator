@@ -27,28 +27,61 @@ function writePassword() {
 
 generateBtn.addEventListener("click", writePassword);
 
+
+//Main function 
+
 function generatePassword() {
 
   var length = prompt("Choose password length: must be between 8-128 characters");
-  var specialChars = prompt('Would you like to include special characters? "y" "n" ');
-  var upperChars = prompt('Would you like in include uppercase characters? "y" "n" ');
-  var lowerChars = prompt('Would you like to include lowercase characters? "y" "n" ');
-  var numbers = prompt('Would you like to include numbers? "y" "n" ');
-
-  if (!length) {
-    return;
-  }
-
-  generatePassword(specialChars);
-}
+  var specialChars = confirm('Would you like to include special characters?');
+  var upperChars = confirm('Would you like in include uppercase characters?');
+  var lowerChars = confirm('Would you like to include lowercase characters? "y" "n" ');
+  var numbers = confirm('Would you like to include numbers? "y" "n" ');
 
 
-if (specialChars === "y") {
-  characters.special = functionArray[3];
+// Special characters  yes or no
+
+if(specialChars === true) {
+  characters.special += functionArray[3];
   count++;
-
+} else {
+  return; 
 }
 
+//Uppercase characters yes or no
+
+if (upperChars === true) {
+  characters.upper += functionArray[1];
+  count++;
+} else {
+  return;
+}
+
+if (lowerChars === true) {
+  characters.lower += functionArray[0];
+
+} else {
+  return;
+}
+
+if (numbers === true) {
+  characters.numbers += functionArray[2];
+
+} else {
+  return;
+}
+
+//Random lenght of the password
+
+var passLength = " "; 
+for (var i = 8; (parseInt(length) - count); i++) {
+  var randomNumber = Math.floor(Math.random() * 4); 
+
+  passLength += randomNumber;
+
+  return passLength;
+
+}
 
 
 
@@ -66,28 +99,28 @@ var functionArray = [
   },
 
   function randomUpper() {
-    return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+   return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
 
   },
 
   function randomNumber() {
-    return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+   return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
   },
 
   function randomSpecial() {
-    var specialChars = '!@#$%^&*()';
-    return String.fromCharCode[Math.floor(Math.random() * specialChars.length)];
+    var symbol = '!@#$%^&*()';
+    return String.fromCharCode[Math.floor(Math.random() * symbol.length)];
   }
 
 ];
 
 
+}
 
 
 
-
-
-
+writePassword();
+generatePassword();
 
 
 
