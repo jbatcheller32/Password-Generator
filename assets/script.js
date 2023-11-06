@@ -69,6 +69,7 @@ function generatePassword() {
   if (upperChars === true) {
     upper = randomUpper;
     count++;
+
   } if (upperChars === false) {
     return;
   }
@@ -95,7 +96,7 @@ function generatePassword() {
 
   var passLength = " ";
 
-  for (var i = 8; (parseInt(length) - count); i++) {
+  for (var i = 8; (parseInt(length) + count); i++) {
     var randomNumber = Math.floor(Math.random() * 6);
     passLength += randomNumber;
   
@@ -109,7 +110,7 @@ function generatePassword() {
 
   }
 
-  for (var j = 128; (parseInt(length) - count); j--) {
+  for (var j = 128; (parseInt(length) + count); j--) {
     var randNum = Math.floor(Math.random() * 6);
     passLength -= randNum;
 
