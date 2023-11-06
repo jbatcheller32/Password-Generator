@@ -91,16 +91,15 @@ function generatePassword() {
     return;
   }
    
-  //Random lenght of the password
+  //Random length of the password
 
   var passLength = " ";
+
   for (var i = 8; (parseInt(length) - count); i++) {
     var randomNumber = Math.floor(Math.random() * 6);
     passLength += randomNumber;
   
-    
-
-
+  
     passLength += lower;
     passLength += numbers;
     passLength += special;
@@ -109,37 +108,18 @@ function generatePassword() {
     return passLength;
 
   }
+
+  for (var j = 128; (parseInt(length) - count); j--) {
+    var randNum = Math.floor(Math.random() * 6);
+    passLength -= randNum;
+
+    passLength -= lower;
+    passLength -= numbers;
+    passLength -= special;
+    passLength -= upper;
+
+    return passLength;
+
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
