@@ -2,7 +2,7 @@
 var generateBtn = document.querySelector("#generate");
 
 
-var symbol = '!@#$%^&*()'.split;
+var symbol = '!@#$%^&*()';
 var special = " ";
 var numbers = " ";
 var upper = " ";
@@ -58,9 +58,9 @@ function generatePassword() {
   // Special characters  yes or no
 
   if (specialChars === true) {
-    special = randomSpecial;
+    special = symbol;
     count++;
-  } else {
+  } if (specialChars === false) {
     return;
   }
 
@@ -69,27 +69,36 @@ function generatePassword() {
   if (upperChars === true) {
     upper = randomUpper;
     count++;
+  } if (upperChars === false) {
+    return;
   }
 
   if (lowerChars === true) {
     lower = randomLower;
     count++;
 
+  } if (lowerChars === false) {
+    return;
   }
+
+  //number yes no
 
   if (numbers === true) {
     numbers = randomNumber;
     count++;
 
+  } if (numbers === false) {
+    return;
   }
-
+   
   //Random lenght of the password
 
   var passLength = " ";
   for (var i = 8; (parseInt(length) - count); i++) {
-    var randomNumber = Math.floor(Math.random() * 4);
-
+    var randomNumber = Math.floor(Math.random() * 6);
     passLength += randomNumber;
+  
+    
 
 
     passLength += lower;
