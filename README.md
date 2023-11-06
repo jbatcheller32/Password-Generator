@@ -36,3 +36,6 @@ https://github.com/jbatcheller32/Password-Generator
 
 # Screen shots
 
+
+<img width="860" alt="passwordgen" src="https://github.com/jbatcheller32/Password-Generator/assets/110508090/d48aa005-adfc-42ac-b78d-db478c9263ef">
+
